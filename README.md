@@ -1,7 +1,4 @@
 # linux_informations
-List of linux commands
+List of linux commands use the wiki for informations
 
-For filtrering the authentification log:
 
-//see the last 20 lines of the files
-tail -n 20 /var/log/messages 
