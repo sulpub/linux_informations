@@ -148,3 +148,22 @@ tail -n 10 /var/log/auth.log
 ## List end line of open session
 last -n 1
 
+# Serveur Email at home
+List of command for installing email server at home.
+
+## Install the package bind9-host
+sudo apt-get install bind9-host
+
+for testing
+host -t MX <IP or domain>
+ 
+```
+Example :
+host -t MX google.com
+ google.com mail is handled by 10 aspmx.l.google.com.
+ google.com mail is handled by 40 alt3.aspmx.l.google.com.
+ google.com mail is handled by 50 alt4.aspmx.l.google.com.
+ google.com mail is handled by 30 alt2.aspmx.l.google.com.
+ google.com mail is handled by 20 alt1.aspmx.l.google.com.
+
+```
