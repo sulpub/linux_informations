@@ -139,6 +139,13 @@ Modify as well :
 Nota : if the local file ~/.asoundrc exist, it have more priority. 
 ```
 
+## ISSUE 8 : Cahnge icon login Lubuntu sous XFCE
+```
+Place an icon in PNG format on the home directory of the user.
+Rename it to .face
+That all
+```
+
 # linux_informations
 List of linux commands use the wiki for informations
 
