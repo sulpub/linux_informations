@@ -146,6 +146,17 @@ Rename it to .face
 That's all.
 ```
 
+## ISSUE 9 : Change Welcome message Shell linux
+
+Edit the file /etc/motd
+```
+sudo nano /etc/motd
+```
+
+You can use this link to form special text message :http://www.patorjk.com/software/taag
+
+After modify your motd (Message Of The Day) file when you log in ssh with your terminal, the new text message appears.
+
 # linux_informations
 List of linux commands use the wiki for informations
 
@@ -174,3 +185,4 @@ host -t MX google.com
  google.com mail is handled by 20 alt1.aspmx.l.google.com.
 
 ```
+
