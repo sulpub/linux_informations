@@ -157,6 +157,14 @@ You can use this link to form special text message :http://www.patorjk.com/softw
 
 After modify your motd (Message Of The Day) file when you log in ssh with your terminal, the new text message appears.
 
+## ISSUE 10 : Find big file on the system
+
+You can use this command for file up to 500Mo
+
+```
+sudo find /PATH/ -type f -size +500000k -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
+```
+
 # linux_informations
 List of linux commands use the wiki for informations
 
