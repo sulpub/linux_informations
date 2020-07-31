@@ -199,3 +199,12 @@ host -t MX google.com
 
 ```
 
+## Empty file
+
+For erasing the content of a file, you can send this command :
+
+```
+echo > filename.txt
+```
+
+with this command it is not necessary to delete file and recreate it.
