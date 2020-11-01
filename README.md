@@ -165,6 +165,20 @@ You can use this command for file up to 500Mo
 sudo find /PATH/ -type f -size +500000k -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
 ```
 
+## ISSUE 11 : How To Create a New User and Grant Permissions in MySQL
+
+Run MYSQL : ** sudo mysql **
+
+```
+// add user
+mysql> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+// add grand permission
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+// relaod privilege
+mysql> FLUSH PRIVILEGES;
+```
+link : https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
+
 # linux_informations
 List of linux commands use the wiki for informations
 
