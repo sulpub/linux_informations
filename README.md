@@ -1,4 +1,7 @@
+![Linux bandeau](images/bande_linux.jpg)
+
 # Linux_cmd_informations
+
 Information on Linux command
 
 # File actions
