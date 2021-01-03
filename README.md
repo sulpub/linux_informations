@@ -225,3 +225,10 @@ echo > filename.txt
 ```
 
 with this command it is not necessary to delete file and recreate it.
+
+## How to know the directory size
+
+```
+du -h   // for list size directory
+du -sh /etc   //total size of etc directroy
+```
