@@ -184,6 +184,10 @@ link : https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user
 
 ## ISSUE 12 : Intempestive wifi disconnexion
 
+For resolve this problem, it is necessary to disconnect the power save of the wifi connexion.
+
+It is important to do this manipulation for each wifi network.
+
 ```
 cd /etc/NetworkManager/system-connections/
 ls
