@@ -182,6 +182,18 @@ mysql> FLUSH PRIVILEGES;
 ```
 link : https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
 
+## ISSUE 12 : Intempestive wifi disconnexion
+
+```
+cd /etc/NetworkManager/system-connections/
+ls
+sudo nano your_wifi_network
+
+Add "powersave=2" on the wifi section, save the file and reboot the system
+
+```
+To see if the configuration was ok run : **iwconfig** and watch if you see ***"Power Management:off"***
+
 # linux_informations
 List of linux commands use the wiki for informations
 
