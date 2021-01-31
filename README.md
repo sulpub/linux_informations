@@ -248,3 +248,7 @@ with this command it is not necessary to delete file and recreate it.
 du -h   // for list size directory
 du -sh /etc   //total size of etc directroy
 ```
+
+## OpenVPN configuration
+
+Lien IONOS.FR : https://www.ionos.fr/digitalguide/serveur/configuration/installer-un-serveur-vpn-via-raspberry-pi-et-openvpn/
