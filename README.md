@@ -19,6 +19,9 @@ sudo apt-get update       //update all the package on your distribution
 sudo atp-get upgrade      //upgrade all package installed on your distribution
 sudo apt-get install gimp //exemple to install gimp software for example you can replace gimp by other software....
 sudo apt-get remove gimp  //remove gimp software for example. You can replace gimp by other software for removing....
+
+sudo apt-get install libffi6=3.2.1-6   //specify a version of the librairy
+
 ```
 
 # network information
