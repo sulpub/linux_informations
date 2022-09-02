@@ -260,20 +260,27 @@ Lien IONOS.FR : https://www.ionos.fr/digitalguide/serveur/configuration/installe
 # Installation PYTHON
 
 Choix version python 3 : exemple 3.9.1 defaut
- 
+``` 
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 0
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.9 1
-
+```
+ 
 Choix python 3 au lieu de python 2 :
 
 //controle version
+ ```
 python --version
-
+```
+ 
 //desactivation python 2
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 0
-//activation python 3
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
-
+```
+ sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 0
+```
+ //activation python 3
+```
+ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+```
 //controle version
-python --version
-
+```
+ python --version
+```
