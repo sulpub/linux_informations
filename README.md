@@ -257,9 +257,10 @@ du -sh /etc   //total size of etc directroy
 Lien IONOS.FR : https://www.ionos.fr/digitalguide/serveur/configuration/installer-un-serveur-vpn-via-raspberry-pi-et-openvpn/
 
 
-## installation PYTHON
+# Installation PYTHON
 
 Choix version python 3 : exemple 3.9.1 defaut
+ 
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 0
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.9 1
 
