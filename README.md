@@ -284,3 +284,94 @@ python --version
 ```
  python --version
 ```
+
+
+# YOLO V5 notes
+
+*** install package debian ***
+```
+sudo dpkg -i  package_name.debconda activate yolov5
+```
+
+## YOLO INFERENCE
+```
+cd yolov5
+python detect_mqtt_nowifi.py --line-thickness 1 --conf-thres 0.85 --iou-thres 0.4 --img 640 480  --nosave --weights ./w
+eights/20230309_best_orin_50eph_new_light.pt --source 0
+```
+
+## YOLO TRAIN
+
+Note : sur le portable la carte graphique a 4G de mémoire si on utilise des modele large il faut reduire le batch size.
+
+```
+conda activate yolov5
+cd yolov5
+python train.py --img 640 --batch 16 --epochs 100 --data data/poste_intelligent_order.yaml --weights yolov5l.pt
+
+python train.py --hyp hyp.no-augmentation.yaml
+
+python train.py --img 640 --epochs 3 --data coco128.yaml --weights yolov5s.pt
+
+//high resolution
+python train.py --img 1280 --epochs 3 --batch-size 2 --data ./datasets/bat18650.yaml --hyp ./dataset/hyp.no-augmentatio
+n.yaml --weights yolov5m6.pt
+
+python train.py --img 1280 --epochs 500 --batch-size 1 --data ./datasets/bat18650_3.yaml --hyp ./datasets/hyp.no-augmen
+tation.yaml --weights yolov5l6.pt
+```
+
+
+## Make icone launchable
+
+https://icon.kitchen/
+https://askubuntu.com/questions/141229/how-to-add-a-shell-script-to-launcher-as-shortcut
+https://linuxconfig.org/how-to-create-desktop-shortcut-launcher-on-ubuntu-20-04-focal-fossa-linux
+
+Protocol : 
+Create *.desktop file, location depends on if it is for personal use or all users. If these directories do not exist, create them.
+
+For personal use , ~/.local/share/applications
+gedit ~/.local/share/applications/name.desktop
+For all users, /usr/local/share/applications/ (or /usr/share/applications/ depending upon your system).
+sudo -i gedit /usr/share/applications/name.desktop
+
+Paste below text
+
+[Desktop Entry]
+Type=Application
+Terminal=true
+Name=unmount-mount
+Icon=/path/to/icon/icon.svg
+Exec=/path/to/file/mount-unmount.sh
+
+edit Icon= and Exec= and Name=
+Also Terminal=True/false determines whether the terminal opens a window and displays output or runs in the background
+Put this in unity panel by dragging it from files manager
+
+## YOLO MARK
+yolo mark
+************************************************************
+./yolo_mark x64/Release/data/img x64/Release/data/train.txt x64/Release/data/obj.names
+
+astuce yolomark
+<- prev_img
+-> next_img
+c - clear_marks
+n - one_object_per_img
+0-9 - obj_id
+m - show coords
+ESC - exit",
+
+w - line width
+k - hide obj_name
+p - copy previous
+o - track objects
+r - delete selected
+R-mouse - move box"
+
+h - disable help"
+h - show help"
+
+
+
