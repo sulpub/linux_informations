@@ -373,5 +373,25 @@ R-mouse - move box"
 h - disable help"
 h - show help"
 
+## YOLO notes
+### Capture image with webcam
+1. place object in position_1
+2. define name_1 of the lot of picture
+3. take a lot of picture (30-50 picture) with varing light, move behind your objet to modify the aspect.
+4. Do the step 1 to 3 a lot of time depending of the quantity you want.
 
+### Run yolo inference
+1. run the yolo inference with the pictures you catch
+2. Activate the text output
+
+### Run yolo mark
+For finalize the annotation of your dataset
+1. Put all the picture and txt fil in the same directory
+2. Configure yolo_mark to see the annotated pictures
+3. Make correction of the annotated errors and use copy to reproduce all the bounding box on the lot of your picture
+4. Save all your job by pressing ESC touch
+
+### rehenforce your model
+1. Prepare your data with this new annotated picture
+2. Run the inference with the first model generated with synthetic images.
 
