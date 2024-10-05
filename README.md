@@ -392,6 +392,108 @@ For finalize the annotation of your dataset
 4. Save all your job by pressing ESC touch
 
 ### rehenforce your model
-1. Prepare your data with this new annotated picture
-2. Run the inference with the first model generated with synthetic images.
+
+# GESTION SWAP UBUNTU
+Pour augmenter la taille du swap sous Ubuntu, voici les étapes à suivre :
+## 1. Vérification de l'espace swap actuel
+
+D'abord, vérifiez la taille actuelle de votre partition ou fichier de swap avec la commande suivante :
+
+```
+swapon --show
+```
+Vous pouvez aussi vérifier l'espace total avec :
+
+```
+free -h
+```
+
+## 2. Désactiver le swap existant (si vous travaillez avec un fichier swap)
+
+Avant de modifier ou de créer un nouveau fichier de swap, désactivez le swap actuel :
+
+```
+
+sudo swapoff -a
+```
+
+## 3. Créer un nouveau fichier de swap
+
+Supposons que vous souhaitiez créer un nouveau fichier de swap de 4 Go. Voici comment le faire :
+
+```
+
+sudo fallocate -l 4G /swapfile
+```
+
+Si fallocate n'est pas disponible, utilisez dd :
+
+```
+
+sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+```
+
+## 4. Ajuster les permissions du fichier swap
+
+Assurez-vous que seuls les utilisateurs root peuvent lire et écrire dans le fichier :
+
+```
+
+sudo chmod 600 /swapfile
+```
+
+## 5. Configurer le fichier swap
+
+Formatez le fichier en tant qu'espace swap avec la commande suivante :
+
+```
+
+sudo mkswap /swapfile
+```
+
+## 6. Activer le swap
+
+Pour activer le nouveau fichier swap :
+
+```
+sudo swapon /swapfile
+```
+
+## 7. Vérification
+
+Vérifiez si le swap est bien actif et s'il a la taille désirée :
+
+```
+swapon --show
+free -h
+```
+
+## 8. Rendre le swap permanent
+
+Pour rendre le changement persistant après redémarrage, ajoutez cette ligne au fichier /etc/fstab :
+
+```
+
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+```
+
+## Bonus : Ajuster le swappiness
+
+Vous pouvez ajuster l'utilisation du swap par le système en modifiant le paramètre swappiness (0 signifie presque jamais utiliser le swap, 100 signifie l'utiliser agressivement) :
+
+```
+
+sudo sysctl vm.swappiness=10
+```
+
+Pour le rendre persistant, ajoutez cette ligne à /etc/sysctl.conf :
+
+```
+
+vm.swappiness=10
+```
+
+Ces étapes permettent d'augmenter ou de redimensionner le swap sous Ubuntu selon vos besoins.
+ 1- Prepare your data with this new annotated picture
+ 2- Run the inference with the first model generated with synthetic images.
 
