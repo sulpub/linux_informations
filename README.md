@@ -482,14 +482,12 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 Vous pouvez ajuster l'utilisation du swap par le système en modifiant le paramètre swappiness (0 signifie presque jamais utiliser le swap, 100 signifie l'utiliser agressivement) :
 
 ```
-
 sudo sysctl vm.swappiness=10
 ```
 
 Pour le rendre persistant, ajoutez cette ligne à /etc/sysctl.conf :
 
 ```
-
 vm.swappiness=10
 ```
 
@@ -497,3 +495,56 @@ Ces étapes permettent d'augmenter ou de redimensionner le swap sous Ubuntu selo
  1- Prepare your data with this new annotated picture
  2- Run the inference with the first model generated with synthetic images.
 
+# Redimensionner carte SD (exemple jeston nano 32Go -> 64Go)
+
+## Etape 1 : Identifier la partition à redimensionner
+
+Ouvrez un terminal et tapez :
+
+```
+lsblk
+```
+
+Notez le nom de votre partition principale (par exemple, /dev/mmcblk0p1).
+
+## Étape 2 : Utiliser fdisk pour supprimer et recréer la partition
+
+⚠️ Attention : Assurez-vous d'avoir une sauvegarde de vos données importantes avant de continuer, car toute erreur peut rendre le système inutilisable.
+
+Lancez fdisk :
+
+```
+sudo fdisk /dev/mmcblk0
+```
+
+Une fois dans fdisk, suivez les étapes suivantes pour supprimer et recréer la partition sans perdre de données.
+
+ - Tapez **p** pour afficher les partitions actuelles. Notez le numéro de partition (généralement 1) et le secteur de début de la partition principale (Start).
+ - Tapez **d** pour supprimer la partition principale (généralement 1).
+ - Tapez **n** pour créer une nouvelle partition :
+    - Choisissez le même numéro de partition (généralement 1).
+    - Entrez le secteur de début original que vous avez noté précédemment pour ne pas modifier les données existantes.
+    - Laissez le secteur de fin par défaut pour utiliser tout l'espace disponible.
+ - Tapez *w* pour écrire les modifications et quitter fdisk.
+
+Redémarrez votre Jetson Nano :
+
+```
+sudo reboot
+```
+
+## Étape 3 : Redimensionner le système de fichiers
+
+Une fois redémarré, utilisez resize2fs pour redimensionner le système de fichiers afin qu'il occupe toute la partition :
+
+```
+sudo resize2fs /dev/mmcblk0p1
+```
+
+## Étape 4 : Vérifier la taille
+
+Utilisez df -h pour vérifier que la partition principale utilise maintenant toute la carte SD :
+
+```
+df -h
+```
